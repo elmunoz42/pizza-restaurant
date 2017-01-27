@@ -54,7 +54,8 @@ function dollaBillz (number) {
 $(document).ready(function() {
   console.log("hello");
   var pizzaCount=1;
-  var orderTotal=0
+  var orderTotal=0;
+  var orders=[];
   ///submit///
   $("form#order-form").submit(function(event) {
     event.preventDefault();
@@ -82,15 +83,13 @@ $(document).ready(function() {
 
 
     ///Output///
+    ///Order///
     var pizzaPrice = newPizzaObject.pizzaMath();
     orderTotal += pizzaPrice;
     console.log("pizzaPrice: " + pizzaPrice);
     console.log("orderTotal: " + orderTotal);
     if ((newPizzaObject.toppings.length + newPizzaObject.specialToppings.length)===0) {
       $("#order-checkout").append("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + "<br>" + dollaBillz(pizzaPrice) + "<br>");
-    }
-    else if ((newPizzaObject.toppings.length + newPizzaObject.specialToppings.length)===2) {
-    $("#order-checkout").append("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + " with" + newPizzaObject.toppings + " and" + newPizzaObject.specialToppings + "<br>" + dollaBillz(pizzaPrice) + "<br>");
     }
     else {
       $("#order-checkout").append(andAdder("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + " with" + newPizzaObject.toppings + newPizzaObject.specialToppings + "<br>" + dollaBillz(pizzaPrice) + "<br>"));
@@ -100,4 +99,29 @@ $(document).ready(function() {
     pizzaCount+=1;
     $("#total").text(dollaBillz(orderTotal));
   });
+  //order-form.submit
+
+    ///checkout///
+    $("form#payment-info").submit(function(event){
+      event.preventDefault();
+      var paymentType = $("#payment-type").val();
+      var confirmed = false;
+      if (paymentType === "cash") {
+        alert("The total is " + dollaBillz(orderTotal) + " Thank you for your business. Enjoy!");
+      }
+      else {
+        confirmed = confirm("The total is " + dollaBillz(orderTotal) + " is this the correct order?");
+        if (confirmed) {
+          prompt("please input your credit card information starting with the name on the card:");
+          prompt("Your credit card number:");
+          prompt("The expiration date: (example 10/19) ");
+          prompt("Would you like to add a tip?");
+          alert("Thank you for your business. Enjoy!");
+        }
+        else {
+          prompt("No problem. Go ahead and tweak your order however you like.")
+        }
+      }
+    });
+    // payment-info.submit
 });

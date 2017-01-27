@@ -55,19 +55,30 @@
             <!-- jumbotron -->
           </div>
           <!-- right column -->
-        </div>
-        <!-- row 1 -->
-        <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-8">
             <div class="jumbotron">
               <h3>Total:</h3>
               <h4 id="total"></h4>
             </div>
             <!-- jumbotron -->
+            <div class="checkout-box">
+              <form id="payment-info" action="index.html" method="post">
+                <label></label>
+                <select id="payment-type" class="form-control" >
+                  <option value="cash">Cash</option>
+                  <option value="visa">Visa</option>
+                  <option value="masterCard">Master Card</option>
+                  <option value="AMEX">American Express</option>
+                </select>
+                <button class="btn" type="submit" name="button">Pay</button>
+              </form>
+              <!-- payment-info -->
+            </div>
+            <!-- checkout-box -->
           </div>
           <!-- total and checkout -->
         </div>
-        <!-- row 2-->
+        <!-- row 1 -->
     </div>
     <!-- container -->
   </body>
