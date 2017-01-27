@@ -29,11 +29,11 @@ function orderCounter (number) {
     return number + "th"
   }
 }
-//// andAdder ////
-function andAdder (phrase) {
+//// andAdder ////adds and and so many count before the end of the phrase
+function andAdder (phrase, count) {
   var wordArray = phrase.split(' ');
   console.log(wordArray);
-  wordArray.splice((wordArray.length - 1),0," and")
+  wordArray.splice((wordArray.length - count),0," and")
   return wordArray.join(' ');
 }
 ///// dollaBillz ////
@@ -41,7 +41,15 @@ function dollaBillz (number) {
   return "$" + number;
 }
 
-
+/////receipt maker////
+function receiptMaker (orderArray) {
+  if (orderArray.length === 1) {
+    return orderArray[0];
+  }
+  else if (orderArray.length >1 ) {
+    return orderArray.join("\n");
+  }
+}
 
 
 
@@ -56,6 +64,9 @@ $(document).ready(function() {
   var pizzaCount=1;
   var orderTotal=0;
   var orders=[];
+  var ordersForReceipt=[];
+
+  // $("#new-order").click(function(event))
   ///submit///
   $("form#order-form").submit(function(event) {
     event.preventDefault();
@@ -86,16 +97,18 @@ $(document).ready(function() {
     ///Order///
     var pizzaPrice = newPizzaObject.pizzaMath();
     orderTotal += pizzaPrice;
-    console.log("pizzaPrice: " + pizzaPrice);
-    console.log("orderTotal: " + orderTotal);
     if ((newPizzaObject.toppings.length + newPizzaObject.specialToppings.length)===0) {
-      $("#order-checkout").append("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + "<br>" + dollaBillz(pizzaPrice) + "<br>");
+      orders.push("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + "<br>" + dollaBillz(pizzaPrice) + "<br>");
+      ordersForReceipt.push(newPizzaObject.pizzaType + " " + dollaBillz(pizzaPrice));
+      console.log("orders: " + orders);
+      $("#order-checkout").append(orders[pizzaCount-1]);
     }
     else {
-      $("#order-checkout").append(andAdder("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + " with" + newPizzaObject.toppings + newPizzaObject.specialToppings + "<br>" + dollaBillz(pizzaPrice) + "<br>"));
+      orders.push(andAdder(("- Your " + orderCounter(pizzaCount) + " pie is a " + newPizzaObject.pizzaType + " with" + newPizzaObject.toppings + newPizzaObject.specialToppings + "<br>" + dollaBillz(pizzaPrice) + "<br>"),1))
+      ordersForReceipt.push(andAdder((newPizzaObject.pizzaType + " with" + newPizzaObject.toppings + newPizzaObject.specialToppings + " " + dollaBillz(pizzaPrice)),2));
+      $("#order-checkout").append(orders[pizzaCount-1]);
+      console.log("orders: " + orders);
     }
-    console.log(newPizzaObject.toppings);
-    console.log(newPizzaObject.specialToppings);
     pizzaCount+=1;
     $("#total").text(dollaBillz(orderTotal));
   });
@@ -107,21 +120,33 @@ $(document).ready(function() {
       var paymentType = $("#payment-type").val();
       var confirmed = false;
       if (paymentType === "cash") {
-        alert("The total is " + dollaBillz(orderTotal) + " Thank you for your business. Enjoy!");
+        alert("receipt:\n" + receiptMaker(ordersForReceipt) + "\ntotal: " +dollaBillz(orderTotal) + "\nThank you for your business. Enjoy!");
+        pizzaCount=1;
+        orderTotal=0;
+        orders=[];
+        ordersForReceipt=[];
+        document.write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + "<h1>"+"                     "+" Thanks Again!</h1>");
       }
       else {
-        confirmed = confirm("The total is " + dollaBillz(orderTotal) + " is this the correct order?");
+        confirmed = confirm("We have... \n" + receiptMaker(ordersForReceipt) + "\ntotal: " + dollaBillz(orderTotal) + "\nIs this your complete order?");
         if (confirmed) {
-          prompt("please input your credit card information starting with the name on the card:");
+          prompt("Name on the card:");
           prompt("Your credit card number:");
           prompt("The expiration date: (example 10/19) ");
           prompt("Would you like to add a tip?");
-          alert("Thank you for your business. Enjoy!");
+          alert("receipt:\n"+ receiptMaker(ordersForReceipt) + "\ntotal: " +dollaBillz(orderTotal) + "Thank you for your business. Enjoy!");
+          pizzaCount=1;
+          orderTotal=0;
+          orders=[];
+          ordersForReceipt=[];
+          document.write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + "<h1>"+"                     "+" Thanks Again!</h1>");
         }
         else {
           prompt("No problem. Go ahead and tweak your order however you like.")
         }
+        //checkout confirmation
       }
+      // payment choice
     });
     // payment-info.submit
 });
