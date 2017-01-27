@@ -38,8 +38,9 @@ Pizza-Restaurant: Website that allows customers to order and customize their piz
 ## Specifications
 |Desired Behaviour | Example Input | Example Output |
 |:-----------------|:--------------:|---------------:|
-|1)User can choose one plain pizza and see that it has been ordered.| select "16 inch pizza"  | ordered: "16 inch pizza"|
-|2)User can add toppings to pizza and see the resulting order.| select "16 inch pizza" select "pepperoni"| ordered: "16 inch pizza with pepperoni" |
+|1)User can choose one plain pizza and see that it has been ordered.| "16 inch pizza"  | ordered: "16 inch pizza"|
+|2)User can add toppings to pizza and see the resulting order.| "16 inch pizza" select "pepperoni"| ordered: "16 inch pizza with pepperoni" |
+|3)User can add special and regular toppings review resulting order and appropriate price.| "16 inch pizza", "pepperoni", "mushrooms", "vegan cheese"| order: "16 inch pizza with pepperoni, mushroom and vegan cheese" price: $17 |
 
 
 
