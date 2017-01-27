@@ -9,13 +9,60 @@
   </head>
   <body>
     <div class="container">
-      <h2>Pizza-Restaurant</h2>
         <div class="jumbotron">
-
+          <h2>Pizza-Restaurant</h2>
+          <img src="img/cheese-pizza.jpg" alt="cheese-pizza">
         </div>
-      <img src="img/cheese-pizza" alt="cheese-pizza">
+        <!-- title jumbotron -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="jumbotron">
+              <form id="order-form">
+                <div class="form-group">
+                  <h3>Place Your Order</h3>
+                  <label>Type of pizza:</label>
+                  <select id="pizza-type" class="form-control">
+                    <option value="16 inch Pizza">16" Plain Cheese Pizza</option>
+                    <option value="12 inch Pizza">12" Plain Cheese Pizza</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn" name="button">Place Order!</button>
+              </form>
+              <!-- order-form -->
+            </div>
+            <!-- jumbotron -->
+          </div>
+          <!-- left column -->
+          <div class="col-md-8">
+            <div class="jumbotron">
+              <h3>Checkout Order</h3>
+              <ul id="order-checkout">
+                <p></p>
+              </ul>
+            </div>
+            <!-- jumbotron -->
+          </div>
+          <!-- right column -->
+        </div>
+        <!-- row 1 -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="jumbotron">
 
+            </div>
+            <!-- jumbotron -->
+          </div>
+          <!-- left column bottom -->
+          <div class="col-md-8">
+            <div class="jumbotron">
 
+            </div>
+
+          </div>
+          <!-- right column bottom -->
+        </div>
+        <!-- row 2-->
     </div>
+    <!-- container -->
   </body>
 </html>
