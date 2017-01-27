@@ -38,7 +38,9 @@ Pizza-Restaurant: Website that allows customers to order and customize their piz
 ## Specifications
 |Desired Behaviour | Example Input | Example Output |
 |:-----------------|:--------------:|---------------:|
-|1)User can choose one plain pizza and see that it has been ordered.| select "plain pizza" | ordered: "plain pizza"|
+|1)User can choose one plain pizza and see that it has been ordered.| select "16 inch pizza"  | ordered: "16 inch pizza"|
+|2)User can add toppings to pizza and see the resulting order.| select "16 inch pizza" select "pepperoni"| ordered: "16 inch pizza with pepperoni" |
+
 
 
 
