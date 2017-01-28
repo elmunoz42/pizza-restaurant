@@ -1,6 +1,19 @@
 //business logic
+/// pizzaType objects
 
-
+// var sixteenInch = {
+//   name: "16 inch pizza";
+//   price: 10;
+// }
+// var twelveInch = {
+//   name: "12 inch pizza";
+//   price: 8;
+// }
+// var glutenFree = {
+//   name: "12 inch glutenFree";
+//   price: 10;
+// }
+// var pizzaSizes = [sixteenInch, twelveInch, glutenFree];
 ////PizzaObjectMaker ////
 function PizzaObjectMaker (pizzaNumber, pizzaType, toppings, specialToppings) {
   this.pizzaNumber=pizzaNumber;
@@ -125,7 +138,10 @@ $(document).ready(function() {
         orderTotal=0;
         orders=[];
         ordersForReceipt=[];
-        document.write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + "<h1>"+"                     "+" Thanks Again!</h1>");
+        $("#order-checkout").text("");
+        $("#total").text("");
+        $('input:checkbox[name=toppings]').last().attr('checked',false);
+        $('input:checkbox[name=special-toppings]').last().attr('checked',false);
       }
       else {
         confirmed = confirm("We have... \n" + receiptMaker(ordersForReceipt) + "\ntotal: " + dollaBillz(orderTotal) + "\nIs this your complete order?");
@@ -139,7 +155,11 @@ $(document).ready(function() {
           orderTotal=0;
           orders=[];
           ordersForReceipt=[];
-          document.write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n" + "<h1>"+"                     "+" Thanks Again!</h1>");
+          $("#order-checkout").text("");
+          $("#total").text("");
+          $('input:checkbox[name=toppings]').last().attr('checked',false);
+          $('input:checkbox[name=special-toppings]').last().attr('checked',false);
+
         }
         else {
           prompt("No problem. Go ahead and tweak your order however you like.")
@@ -149,4 +169,15 @@ $(document).ready(function() {
       // payment choice
     });
     // payment-info.submit
+    $("#order-delete").click(function(){
+      event.preventDefault();
+      pizzaCount=1;
+      orderTotal=0;
+      orders=[];
+      ordersForReceipt=[];
+      $("#order-checkout").text("");
+      $("#total").text("");
+      $('input:checkbox[name=toppings]').last().attr('checked',false);
+      $('input:checkbox[name=special-toppings]').last().attr('checked',false);
+    })
 });

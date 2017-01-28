@@ -19,11 +19,12 @@
             <div class="jumbotron">
               <form id="order-form">
                 <div class="form-group">
-                  <h3>Place Your Order</h3>
-                  <label>Type of pizza:</label>
+                  <h3>Make a Pizza!</h3>
+                  <label>Type and size of pie:</label>
                   <select id="pizza-type" class="form-control">
                     <option value="16 inch pizza">16" Plain Pizza</option>
                     <option value="12 inch pizza">12" Plain Pizza</option>
+                    <option value="12 inch gluten free pizza">12" Gluten Free Pizza</option>
                   </select>
                   <label>Add your regular toppings (add $2 each):</label><br>
                   <input type="checkbox" name="toppings" value=" pepperoni">Pepperoni<br>
@@ -35,10 +36,8 @@
                   <label>Add your special toppings (add $3 each): </label><br>
                   <input type="checkbox" name="special-toppings" value=" vegan-cheese">Vegan Cheese<br>
                   <input type="checkbox" name="special-toppings" value=" lox">Lox<br>
-
-
                 </div>
-                <button type="submit" class="btn" name="button">Place Order!</button>
+                <button type="submit" class="btn" name="button">Add to Order!</button>
               </form>
               <!-- order-form -->
             </div>
@@ -59,24 +58,25 @@
             <div class="jumbotron">
               <h3>Total:</h3>
               <h4 id="total"></h4>
+              <div class="checkout-box">
+                <form id="payment-info" action="index.html" method="post">
+                  <label></label>
+                  <select id="payment-type" class="form-control" >
+                    <option value="cash">Cash</option>
+                    <option value="visa">Visa</option>
+                    <option value="masterCard">Master Card</option>
+                    <option value="AMEX">American Express</option>
+                  </select>
+                  <button class="btn" type="submit" name="button">Pay</button>
+                  <button id="order-delete" type="button" class="btn">Reset Order</button>
+                </form>
+                <!-- payment-info -->
+              </div>
+              <!-- checkout-box -->
             </div>
             <!-- jumbotron -->
-            <div class="checkout-box">
-              <form id="payment-info" action="index.html" method="post">
-                <label></label>
-                <select id="payment-type" class="form-control" >
-                  <option value="cash">Cash</option>
-                  <option value="visa">Visa</option>
-                  <option value="masterCard">Master Card</option>
-                  <option value="AMEX">American Express</option>
-                </select>
-                <button class="btn" type="submit" name="button">Pay</button>
-              </form>
-              <!-- payment-info -->
-            </div>
-            <!-- checkout-box -->
           </div>
-          <!-- total and checkout -->
+          <!-- column total and checkout -->
         </div>
         <!-- row 1 -->
     </div>
