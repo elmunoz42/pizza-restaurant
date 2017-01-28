@@ -1,19 +1,19 @@
 //business logic
 /// pizzaType objects
 
-// var sixteenInch = {
-//   name: "16 inch pizza";
-//   price: 10;
-// }
-// var twelveInch = {
-//   name: "12 inch pizza";
-//   price: 8;
-// }
-// var glutenFree = {
-//   name: "12 inch glutenFree";
-//   price: 10;
-// }
-// var pizzaSizes = [sixteenInch, twelveInch, glutenFree];
+var sixteenInch = {
+  name: "16 inch pizza",
+  price: 10,
+}
+var twelveInch = {
+  name: "12 inch pizza",
+  price: 8,
+}
+var glutenFree = {
+  name: "12 inch glutenFree",
+  price: 10,
+}
+var pizzaSizes = [sixteenInch, twelveInch, glutenFree];
 ////PizzaObjectMaker ////
 function PizzaObjectMaker (pizzaNumber, pizzaType, toppings, specialToppings) {
   this.pizzaNumber=pizzaNumber;
@@ -132,25 +132,12 @@ $(document).ready(function() {
       event.preventDefault();
       var paymentType = $("#payment-type").val();
       var confirmed = false;
-      if (paymentType === "cash") {
-        alert("receipt:\n" + receiptMaker(ordersForReceipt) + "\ntotal: " +dollaBillz(orderTotal) + "\nThank you for your business. Enjoy!");
-        pizzaCount=1;
-        orderTotal=0;
-        orders=[];
-        ordersForReceipt=[];
-        $("#order-checkout").text("");
-        $("#total").text("");
-        $('input:checkbox[name=toppings]').last().attr('checked',false);
-        $('input:checkbox[name=special-toppings]').last().attr('checked',false);
+      if (orderTotal===0) {
+        alert("Please add something to your order.");
       }
       else {
-        confirmed = confirm("We have... \n" + receiptMaker(ordersForReceipt) + "\ntotal: " + dollaBillz(orderTotal) + "\nIs this your complete order?");
-        if (confirmed) {
-          prompt("Name on the card:");
-          prompt("Your credit card number:");
-          prompt("The expiration date: (example 10/19) ");
-          prompt("Would you like to add a tip?");
-          alert("receipt:\n"+ receiptMaker(ordersForReceipt) + "\ntotal: " +dollaBillz(orderTotal) + "Thank you for your business. Enjoy!");
+        if (paymentType === "cash") {
+          alert("receipt:\n" + receiptMaker(ordersForReceipt) + "\ntotal: " +dollaBillz(orderTotal) + "\nThank you for your business. Enjoy!");
           pizzaCount=1;
           orderTotal=0;
           orders=[];
@@ -159,14 +146,35 @@ $(document).ready(function() {
           $("#total").text("");
           $('input:checkbox[name=toppings]').last().attr('checked',false);
           $('input:checkbox[name=special-toppings]').last().attr('checked',false);
-
         }
         else {
-          prompt("No problem. Go ahead and tweak your order however you like.")
+          confirmed = confirm("We have... \n" + receiptMaker(ordersForReceipt) + "\ntotal: " + dollaBillz(orderTotal) + "\nIs this your complete order?");
+          if (confirmed) {
+            prompt("Name on the card:");
+            prompt("Your credit card number:");
+            prompt("The expiration date: (example 10/19) ");
+            prompt("Would you like to add a tip?");
+            alert("receipt:\n"+ receiptMaker(ordersForReceipt) + "\ntotal: " +dollaBillz(orderTotal) + "\nThank you for your business. Enjoy!");
+            pizzaCount=1;
+            orderTotal=0;
+            orders=[];
+            ordersForReceipt=[];
+            $("#order-checkout").text("");
+            $("#total").text("");
+            $('input:checkbox[name=toppings]').last().attr('checked',false);
+            $('input:checkbox[name=special-toppings]').last().attr('checked',false);
+
+          }
+          else {
+            prompt("No problem. Go ahead and tweak your order however you like.")
+
+          }
+          //checkout confirmation
         }
-        //checkout confirmation
+        // payment choice
       }
-      // payment choice
+      // checkout not empty
+
     });
     // payment-info.submit
     $("#order-delete").click(function(){
