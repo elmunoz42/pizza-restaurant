@@ -6,7 +6,7 @@
 
 ## Description
 
-Pizza-Restaurant: Website that allows customers to order and customize their pizza.
+Pizza-Restaurant: Website that allows customers to order and customize their pizza. Website totals prices for different pizza order combinations.
 
 ## Setup/Installation Requirements
 * Clone project
@@ -46,11 +46,5 @@ Pizza-Restaurant: Website that allows customers to order and customize their piz
 |6)User can delete the order and start anew. | order: "16 inch pizza with pepperoni, mushroom and vegan cheese" price: $17 press: delete order | order: <empty>|
 |7)User will be prompted to add something to order if she attempts to pay for empty order.| order: <empty> | alert: Please add something to your order before paying.|
 |8)User can choose different sized pizzas and gluten-free pizza and have corresponding prices.| "12 inch gluten-free", "pepperoni" | $12 |
-
-
-
-
-
-
 
 * End specifications
