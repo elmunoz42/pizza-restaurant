@@ -44,6 +44,8 @@ Pizza-Restaurant: Website that allows customers to order and customize their piz
 |4)User can order a second pizza with different toppings and see the respective prices and total| "16 inch pizza", "pepperoni", "mushrooms", "vegan cheese" 2nd "16 inch pizza"| price:17, price: 10, total: 27|
 |5)User can order, review total and pay for total. | "visa" , "1234567812345678", 12/17 | confirmation and receipt|
 |6)User can delete the order and start anew. | order: "16 inch pizza with pepperoni, mushroom and vegan cheese" price: $17 press: delete order | order: <empty>|
+|7)User will be prompted to add something to order if she attempts to pay for empty order.| order: <empty> | alert: Please add something to your order before paying.|
+|8)User can choose different sized pizzas and gluten-free pizza and have corresponding prices.| "12 inch gluten-free", "pepperoni" | $12 |
 
 
 
