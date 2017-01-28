@@ -1,6 +1,6 @@
 /* Empty Styles for now */
 #red {
-  background-color: salmon;
+  background-color: #ff3300;
 }
 #white {
   background-color: white;
@@ -13,4 +13,7 @@
 }
 .container {
   margin-top: 10px;
+}
+#order-form {
+  margin-top: 20px;
 }
