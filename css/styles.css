@@ -1,1 +1,16 @@
 /* Empty Styles for now */
+#red {
+  background-color: salmon;
+}
+#white {
+  background-color: white;
+}
+#green {
+  background-color: green;
+}
+#dark-green {
+  background-color: orange;
+}
+.container {
+  margin-top: 10px;
+}

@@ -9,14 +9,14 @@
   </head>
   <body>
     <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron" id="red">
           <h2>Pizza-Restaurant</h2>
           <img src="img/cheese-pizza.jpg" alt="cheese-pizza">
         </div>
         <!-- title jumbotron -->
         <div class="row">
           <div class="col-md-4">
-            <div class="jumbotron">
+            <div class="jumbotron" id="white">
               <form id="order-form">
                 <div class="form-group">
                   <h3>Make a Pizza!</h3>
@@ -44,8 +44,8 @@
             <!-- jumbotron -->
           </div>
           <!-- left column -->
-          <div class="col-md-8">
-            <div class="jumbotron">
+          <div class="col-md-8" >
+            <div class="jumbotron" id="green">
               <h3>Order:</h3>
               <ul id="order-checkout">
                 <p></p>
@@ -55,10 +55,10 @@
           </div>
           <!-- right column -->
           <div class="col-md-8">
-            <div class="jumbotron">
+            <div class="jumbotron" id="dark-green">
               <h3>Total:</h3>
               <h4 id="total"></h4>
-              <div class="checkout-box">
+              <div class="checkout-box" class="red">
                 <form id="payment-info" action="index.html" method="post">
                   <label></label>
                   <select id="payment-type" class="form-control" >
