@@ -34,10 +34,11 @@ function orderCounter (number) {
     return number + "th"
   }
 }
-//// andAdder ////adds and and so many count before the end of the phrase
+//// andAdder ////adds "and" at so many -count- before the end of the -phrase-
 function andAdder (phrase, count) {
   var wordArray = phrase.split(' ');
-  wordArray.splice((wordArray.length - count),0," and")
+  wordArray.splice((wordArray.length - count),0," and");
+  // wordArray.splice((wordArray.length - (count -1)),0,". ");  /// adds dot but there's an annoying space!
   return wordArray.join(' ');
 }
 ///// dollaBillz ////
@@ -54,11 +55,6 @@ function receiptMaker (orderArray) {
     return orderArray.join("\n");
   }
 }
-
-
-
-
-
 
 
 
