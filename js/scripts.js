@@ -56,6 +56,60 @@ function receiptMaker (orderArray) {
   }
 }
 
+///// checkbox listener
+function display(msg) {
+  var p = document.createElement('p');
+  p.innerHTML = msg;
+  console.log(msg);
+  // document.body.appendChild(p);
+  if (msg) {
+    document.getElementById('pizza-image1').src = "img/placed-pepperonis.png";
+  }
+  else if (msg==false) {
+    document.getElementById('pizza-image1').src = "img/transparent-pizza-with-leaf.png";
+  }
+}
+
+/// checkbox displayer
+function handleClick(cb1) {
+  display(cb1.checked);
+}
+///// checkbox listener mushrooms
+function displayMushrooms(msg) {
+  var p = document.createElement('p');
+  p.innerHTML = msg;
+  console.log(msg);
+  // document.body.appendChild(p);
+  if (msg) {
+    document.getElementById('pizza-image2').src = "img/placed-mushrooms.png";
+  }
+  else if (msg==false) {
+    document.getElementById('pizza-image2').src = "img/transparent-pizza-with-leaf.png";
+  }
+}
+
+/// checkbox displayer mushrooms
+function handleClickMushrooms(cb2) {
+  displayMushrooms(cb2.checked);
+}
+///// checkbox listener mushrooms
+function displayOlives(msg) {
+  var p = document.createElement('p');
+  p.innerHTML = msg;
+  console.log(msg);
+  // document.body.appendChild(p);
+  if (msg) {
+    document.getElementById('pizza-image3').src = "img/placed-olives.png";
+  }
+  else if (msg==false) {
+    document.getElementById('pizza-image3').src = "img/transparent-pizza-with-leaf.png";
+  }
+}
+
+/// checkbox displayer mushrooms
+function handleClickOlives(cb3) {
+  displayOlives(cb3.checked);
+}
 
 
 // user interface logic

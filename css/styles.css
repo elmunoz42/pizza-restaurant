@@ -26,6 +26,26 @@ img {
 border-radius: 8px;
 
 }
+
+#pizza-image1 {
+  position: fixed;
+  margin: 0px;
+  z-index: 1;
+}
+#pizza-image2 {
+  position: fixed;
+  margin: 0px;
+  z-index: 2;
+}
+#pizza-image3 {
+  position: fixed;
+  margin: 0px;
+  z-index: 3;
+}
+#cheese-pizza {
+  position: relative;
+  margin: 0px;
+}
 #white {
   background-color: white;
 }
